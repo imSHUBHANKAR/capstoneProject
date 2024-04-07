@@ -1,8 +1,23 @@
-import React from 'react'
+'use client'
+import React from 'react';
+import UploadForm from './_components/UploadForm';
+//import { app } from '@/firebaseConfig';
+import app  from './../../../../firebaseConfig';
+import { getStorage } from "firebase/storage";
 
 function Upload() {
+
+  const storage=getStorage(app)
+  const uploadFile=(file)=>{
+    
+  }
   return (
-    <div>Upload</div>
+    <div className='p-5 px-8 md:px-28'>
+      <h2 className='text-[20px] text-center m-5'>Start 
+        <strong className='text-primary'> Uploading </strong> 
+        files and <strong className='text-primary'>share</strong> it</h2>
+      <UploadForm uploadBtnClick={(file)=>uploadFile(file)}/>
+    </div>
   )
 }
 
